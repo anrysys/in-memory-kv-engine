@@ -19,11 +19,7 @@ See the README for the rationale and trade-offs.
 
 from __future__ import annotations
 
-from .errors import (
-    NESTED_TRANSACTION,
-    NO_TRANSACTION,
-    CommandError,
-)
+from .errors import NESTED_TRANSACTION, NO_TRANSACTION, CommandError
 from .store import KVStore, WriteSet
 
 
