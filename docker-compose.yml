@@ -1,0 +1,10 @@
+services:
+  ember-cache:
+    build: .
+    image: ember-cache:latest
+    container_name: ember-cache
+    ports:
+      - "9888:9888"
+    environment:
+      LOG_LEVEL: INFO
+    restart: unless-stopped
