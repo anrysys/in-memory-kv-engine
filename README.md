@@ -5,25 +5,35 @@ transactions**, written in Python (asyncio). It speaks a tiny line-based
 protocol over a plain TCP socket on port **9888** and returns JSON responses,
 so you can drive it with `nc`, `telnet`, or the bundled CLI.
 
-This repository is a take-home solution for the Ember Cache exercise; see
-[`_local/Ember_Cache_Home_Assesment.md`](_local/Ember_Cache_Home_Assesment.md)
-for the full prompt.
-
 ---
 
 ## Table of contents
 
-- [Features](#features)
-- [Quick start](#quick-start)
-- [Manual verification with `nc` and `telnet`](#manual-verification-with-nc-and-telnet)
-- [Protocol reference](#protocol-reference)
-- [Transaction semantics](#transaction-semantics)
-- [Architecture](#architecture)
-- [Design choices and assumptions](#design-choices-and-assumptions)
-- [Testing](#testing)
-- [Project layout](#project-layout)
-- [Make targets](#make-targets)
-- [Limitations and future work](#limitations-and-future-work)
+- [Ember Cache — In-Memory Key/Value Datastore with Transactions](#ember-cache--in-memory-keyvalue-datastore-with-transactions)
+  - [Table of contents](#table-of-contents)
+  - [Features](#features)
+  - [Quick start](#quick-start)
+    - [Option A — Docker (recommended)](#option-a--docker-recommended)
+    - [Option B — Local Python (\>= 3.12)](#option-b--local-python--312)
+    - [Option C — Run the test suite](#option-c--run-the-test-suite)
+  - [Manual verification with `nc` and `telnet`](#manual-verification-with-nc-and-telnet)
+    - [Using `nc` (netcat)](#using-nc-netcat)
+    - [Using `telnet`](#using-telnet)
+    - [Multi-client demo (two terminals)](#multi-client-demo-two-terminals)
+    - [Scripted smoke test](#scripted-smoke-test)
+    - [Bundled CLI client](#bundled-cli-client)
+  - [Protocol reference](#protocol-reference)
+    - [Framing](#framing)
+    - [Commands](#commands)
+    - [Response schema](#response-schema)
+    - [Error codes](#error-codes)
+  - [Transaction semantics](#transaction-semantics)
+  - [Architecture](#architecture)
+  - [Design choices and assumptions](#design-choices-and-assumptions)
+  - [Testing](#testing)
+  - [Project layout](#project-layout)
+  - [Make targets](#make-targets)
+  - [Limitations and future work](#limitations-and-future-work)
 
 ---
 
